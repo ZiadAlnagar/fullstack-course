@@ -1,0 +1,11 @@
+sequenceDiagram
+Browser->>Server: HTTP GET https://studies.cs.helsinki.fi/exampleapp/spa(text/html)
+Server-->>Browser: spa
+Browser->>Server: HTTP GET https://studies.cs.helsinki.fi/exampleapp/main.css(text/css)
+Server-->>Browser: main.css
+Browser->>Server: HTTP GET https://studies.cs.helsinki.fi/exampleapp/spa.js(javascript)
+Server-->>Browser: spa.js
+Note right of Browser: browser executes js code<br>that requests data.json "notes"
+Browser->>Server: HTTP GET https://studies.cs.helsinki.fi/exampleapp/data.json(JSON)
+Server-->>Browser: data.json [{content: String, date: String}]
+Note right of Browser: browser executes event handler<br>that renders to display<br>the note list

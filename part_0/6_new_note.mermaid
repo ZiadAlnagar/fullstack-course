@@ -1,0 +1,5 @@
+sequenceDiagram
+Note right of Browser: browser executes event handler that:<br>- overwrites the default sumbit behaviour<br>- creates and adds a new note object to the notes list<br>- renders the new list<br>- sends the created note object to server
+Browser->>Server: HTTP POST https://studies.cs.helsinki.fi/exampleapp/new_note_spa
+Server-->>Browser: JSON Object {message: String}
+Note right of Browser: browser executes event handler<br>that displays the server response in the console

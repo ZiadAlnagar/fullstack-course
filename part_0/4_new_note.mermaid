@@ -1,0 +1,14 @@
+sequenceDiagram
+Browser->>Server: HTTP POST https://studies.cs.helsinki.fi/exampleapp/new_note
+Note left of Server: server reads the body of the request<br>then adds a newly created note object to notes
+Server-->>Browser: redirect to /exampleapp/notes
+Browser->>Server: HTTP GET https://studies.cs.helsinki.fi/exampleapp/notes
+Server-->>Browser: notes
+Browser->>Server: HTTP GET https://studies.cs.helsinki.fi/exampleapp/main.css
+Server-->>Browser: main.css
+Browser->>Server: HTTP GET https://studies.cs.helsinki.fi/exampleapp/main.js
+Server-->>Browser: main.js
+Note right of Browser: browser executes js code<br>that requests notes
+Browser->>Server: HTTP GET https://studies.cs.helsinki.fi/exampleapp/data.json
+Server-->>Browser: data.json [{content: String, date: String}]
+Note right of Browser: browser executes event handler<br>that renders to display the updated note list
