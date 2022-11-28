@@ -1,0 +1,42 @@
+POST http://localhost:3001/api/persons/
+Content-Type: application/json
+
+{
+    "name": "Arto Hellas",
+    "number": "040-123456"
+}
+
+###
+
+POST http://localhost:3001/api/persons/
+Content-Type: application/json
+
+{
+    "name": "Ada Lovelace"
+}
+
+###
+
+POST http://localhost:3001/api/persons/
+Content-Type: application/json
+
+{
+    "number": "39-44-5323523"
+}
+
+###
+
+POST http://localhost:3001/api/persons/
+Content-Type: application/json
+
+{}
+
+###
+
+POST https://fullstackopen-p3-phonebook-production.up.railway.app/api/persons/
+Content-Type: application/json
+
+{
+    "name": "person 4",
+    "number": "number 1"
+}
