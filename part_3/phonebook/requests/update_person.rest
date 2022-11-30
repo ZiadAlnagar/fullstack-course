@@ -1,0 +1,36 @@
+@endpoint = persons
+@localhost = http://localhost:3001
+@deployed = 
+@base_url = {{localhost}}
+@url = {{base_url}}/api/{{endpoint}}
+
+# Valid
+PUT {{url}}/6384b91d05e4e13bf65b9d95
+Content-Type: application/json
+
+{
+    "name": "Arto Hellas",
+    "number": "040-123456"
+}
+
+#####
+# Invalid
+
+# Invalid number
+PUT {{url}}/6384b91d05e4e13bf65b9d95
+Content-Type: application/json
+
+{
+    "name": "test",
+    "number": "123456789"
+}
+
+###
+
+# Missing number
+PUT {{url}}/6384b91d05e4e13bf65b9d95
+Content-Type: application/json
+
+{
+    "name": "Arto Hellas"
+}

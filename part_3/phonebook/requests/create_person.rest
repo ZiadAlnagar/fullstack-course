@@ -1,4 +1,13 @@
-POST http://localhost:3001/api/persons/
+@endpoint = persons
+@localhost = http://localhost:3001
+@deployed = 
+@base_url = {{localhost}}
+@url = {{base_url}}/api/{{endpoint}}
+
+#####
+# Valid
+
+POST {{url}}
 Content-Type: application/json
 
 {
@@ -8,7 +17,63 @@ Content-Type: application/json
 
 ###
 
-POST http://localhost:3001/api/persons/
+POST {{url}}
+Content-Type: application/json
+
+{
+    "name": "Annie Mars",
+    "number": "010-123456"
+}
+
+#####
+# Invalid
+
+# Already Exists
+POST {{url}}
+Content-Type: application/json
+
+{
+    "name": "Arto Hellas",
+    "number": "number 1"
+}
+
+###
+
+# Invalid name & number
+POST {{url}}
+Content-Type: application/json
+
+{
+    "name": "te",
+    "number": "123456789"
+}
+
+###
+
+# Invalid name
+POST {{url}}
+Content-Type: application/json
+
+{
+    "name": "te",
+    "number": "123-456789"
+}
+
+###
+
+# Invalid number
+POST {{url}}
+Content-Type: application/json
+
+{
+    "name": "test",
+    "number": "123456789"
+}
+
+###
+
+# Missing number
+POST {{url}}
 Content-Type: application/json
 
 {
@@ -17,7 +82,8 @@ Content-Type: application/json
 
 ###
 
-POST http://localhost:3001/api/persons/
+# Missing name
+POST {{url}}
 Content-Type: application/json
 
 {
@@ -26,17 +92,19 @@ Content-Type: application/json
 
 ###
 
-POST http://localhost:3001/api/persons/
+# No body
+POST {{url}}
 Content-Type: application/json
 
 {}
 
 ###
 
-POST https://fullstackopen-p3-phonebook-production.up.railway.app/api/persons/
+# Empty data
+POST {{url}}
 Content-Type: application/json
 
 {
-    "name": "person 4",
-    "number": "number 1"
+  "name": "",
+  "number": ""
 }

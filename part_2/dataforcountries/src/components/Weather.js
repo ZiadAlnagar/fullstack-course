@@ -12,7 +12,7 @@ const Weather = ({ forecast }) =>
             <p>wind {forecast.wind.speed} m/s</p>
         </div>
     ) : (
-        <></>
+        null
     );
 
 export default Weather;
