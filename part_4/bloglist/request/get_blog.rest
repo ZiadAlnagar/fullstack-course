@@ -1,0 +1,24 @@
+@endpoint = blogs
+@localhost = http://localhost:3001
+@deployed =
+@base_url = {{localhost}}
+@url = {{base_url}}/api/{{endpoint}}
+
+# Fetch all
+GET {{url}}/
+
+#####
+# Fetch single resouce
+
+# Valid
+GET {{url}}/6384b91d05e4e13bf65b9d95
+
+###
+
+# Non-existent
+GET {{url}}/6384b91d05e4e13bf65b9d77
+
+###
+
+# Invalid
+GET {{url}}/999

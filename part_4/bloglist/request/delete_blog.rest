@@ -1,0 +1,15 @@
+@endpoint = blogs
+@localhost = http://localhost:3001
+@deployed =
+@base_url = {{localhost}}
+@url = {{base_url}}/api/{{endpoint}}
+
+#####
+
+# Exist
+DELETE {{url}}/63864172f14b97e61a35c0da
+
+###
+
+# Doesn't exist
+DELETE {{url}}/6384b9260bd1e8d753eec964

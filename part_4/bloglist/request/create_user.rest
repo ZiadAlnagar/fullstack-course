@@ -1,0 +1,22 @@
+@endpoint = users
+@localhost = http://localhost:3001
+@deployed =
+@base_url = {{localhost}}
+@url = {{base_url}}/api/{{endpoint}}
+
+#####
+# Valid
+
+POST {{url}}
+Content-Type: application/json
+
+{
+  "username": "test 3",
+  "name": "this is a name",
+  "password": "password",
+  "blogs": []
+}
+
+###
+
+DELETE {{url}}/6398e1b67c073bc6c44fff86

@@ -1,0 +1,8 @@
+@endpoint = users
+@localhost = http://localhost:3001
+@deployed =
+@base_url = {{localhost}}
+@url = {{base_url}}/api/{{endpoint}}
+
+# Fetch all
+GET {{url}}/

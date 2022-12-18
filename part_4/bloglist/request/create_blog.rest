@@ -1,0 +1,112 @@
+@endpoint = blogs
+@localhost = http://localhost:3001
+@deployed =
+@base_url = {{localhost}}
+@url = {{base_url}}/api/{{endpoint}}
+
+#####
+# Valid
+
+POST {{url}}
+Content-Type: application/json
+
+{
+  "title": "this is a title",
+  "author": "this is an author",
+  "url": "this is a link",
+  "likes": 10
+}
+
+###
+
+POST {{url}}
+Content-Type: application/json
+
+{
+    "name": "Annie Mars",
+    "number": "010-123456"
+}
+
+#####
+# Invalid
+
+# Already Exists
+POST {{url}}
+Content-Type: application/json
+
+{
+    "name": "Arto Hellas",
+    "number": "number 1"
+}
+
+###
+
+# Invalid name & number
+POST {{url}}
+Content-Type: application/json
+
+{
+    "name": "te",
+    "number": "123456789"
+}
+
+###
+
+# Invalid name
+POST {{url}}
+Content-Type: application/json
+
+{
+    "name": "te",
+    "number": "123-456789"
+}
+
+###
+
+# Invalid number
+POST {{url}}
+Content-Type: application/json
+
+{
+    "name": "test",
+    "number": "123456789"
+}
+
+###
+
+# Missing number
+POST {{url}}
+Content-Type: application/json
+
+{
+    "name": "Ada Lovelace"
+}
+
+###
+
+# Missing name
+POST {{url}}
+Content-Type: application/json
+
+{
+    "number": "39-44-5323523"
+}
+
+###
+
+# No body
+POST {{url}}
+Content-Type: application/json
+
+{}
+
+###
+
+# Empty data
+POST {{url}}
+Content-Type: application/json
+
+{
+  "name": "",
+  "number": ""
+}
