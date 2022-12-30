@@ -11,10 +11,9 @@ POST {{url}}
 Content-Type: application/json
 
 {
-  "username": "test 3",
-  "name": "this is a name",
-  "password": "password",
-  "blogs": []
+  "username": "johndoe",
+  "name": "John Doe",
+  "password": "password"
 }
 
 ###

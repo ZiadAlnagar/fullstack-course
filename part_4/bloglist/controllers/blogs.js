@@ -38,10 +38,15 @@ blogsRouter.post('/', ...authenticator, async (request, response) => {
 
   const savedBlog = await blog.save();
 
+  const savedBlogPopulated = await savedBlog.populate('user', {
+    username: 1,
+    name: 1,
+  });
+
   user.blogs = user.blogs.concat(savedBlog._id);
   await user.save();
 
-  response.status(201).json(savedBlog);
+  response.status(201).json(savedBlogPopulated);
 });
 
 blogsRouter.get('/:id', async (request, response) => {
@@ -73,7 +78,10 @@ blogsRouter.put('/:id', ...authenticator, async (request, response) => {
   };
 
   await blog.replaceOne(editedBlog);
-  const updatedBlog = await Blog.findById(blog.id);
+  const updatedBlog = await Blog.findById(blog.id).populate('user', {
+    username: 1,
+    name: 1,
+  });
 
   response.status(200).json(updatedBlog);
 });

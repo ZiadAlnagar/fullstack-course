@@ -6,7 +6,7 @@ const app = require('./app');
 const config = require('./utils/config');
 const logger = require('./utils/logger');
 
-const httpsOn = false;
+const httpsOn = config.HTTPS;
 
 const server = http.createServer(app);
 

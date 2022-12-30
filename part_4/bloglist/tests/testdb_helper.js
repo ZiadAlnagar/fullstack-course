@@ -1,3 +1,5 @@
+/* eslint-disable import/no-extraneous-dependencies */
+
 const mongoose = require('mongoose');
 const { MongoMemoryServer } = require('mongodb-memory-server');
 
@@ -21,7 +23,9 @@ const dropDB = async () => {
 const dropCollections = async () => {
   if (mongo) {
     const collections = await mongoose.connection.db.collections();
-    for (const collection of collections) await collection.deleteMany();
+    const deletePromises = collections.map((c) => c.deleteMany());
+    await Promise.all(deletePromises);
+    // for (const collection of collections) await collection.deleteMany();
   }
 };
 

@@ -1,10 +1,8 @@
-/* eslint-disable import/no-anonymous-default-export */
 import axios from 'axios';
 
 const baseUrl = '/api/persons';
 
-const index = () =>
-  axios.get(baseUrl).then((res) => res.data);
+const index = () => axios.get(baseUrl).then((res) => res.data);
 
 const create = (obj) => axios.post(baseUrl, obj).then((res) => res.data);
 
