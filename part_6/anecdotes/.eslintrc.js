@@ -3,8 +3,6 @@ module.exports = {
     'browser': true,
     'es2021': true,
     'jest/globals': true,
-    'cypress/globals': true,
-    // 'jest': true,
   },
   extends: ['eslint:recommended', 'plugin:react/recommended', 'airbnb'],
   overrides: [],
@@ -15,7 +13,7 @@ module.exports = {
     },
     sourceType: 'module',
   },
-  plugins: ['react', 'jest', 'cypress'],
+  plugins: ['react', 'jest'],
   settings: {
     react: {
       version: 'detect',
@@ -28,7 +26,9 @@ module.exports = {
     'no-return-assign': [2, 'except-parens'],
     'no-param-reassign': 0,
     'no-unused-expressions': [2, { allowShortCircuit: true, allowTernary: true }],
-    'jsx-quotes': [0, 'prefer-single'],
+    'no-unused-vars': 0,
+    'default-param-last': 0,
+    'jsx-quotes': [2, 'prefer-single'],
     'react/prop-types': 0,
     'react/react-in-jsx-scope': 0,
     'react/jsx-filename-extension': 0,
@@ -36,10 +36,3 @@ module.exports = {
     'react/function-component-definition': [2, { namedComponents: 'arrow-function' }],
   },
 };
-
-// 'no-console': 0,
-// 'import/named': 0,
-// 'no-unused-vars': 0,
-// 'consistent-return': 0,
-// 'no-underscore-dangle': 0,
-// 'no-else-return': [2, { allowElseIf: true }],
