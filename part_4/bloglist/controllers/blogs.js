@@ -20,13 +20,22 @@ const requestValidationError = (requestBody, response) => {
 };
 
 blogsRouter.get('/', async (request, response) => {
-  const blogs = await Blog.find({}).populate('user', { username: 1, name: 1 });
+  const blogs = await Blog.find({}).populate('user', { username: 1, name: 1 }).populate('comments');
   response.json(blogs);
 });
 
+blogsRouter.get('/:id', async (request, response) => {
+  const requestedBlog = await Blog.findById(request.params.id).populate(
+    'user',
+    { username: 1, name: 1 },
+  ).populate('comments');
+  if (!requestedBlog) return response.status(404).end();
+
+  response.json(requestedBlog);
+});
+
 blogsRouter.post('/', ...authenticator, async (request, response) => {
-  const { body } = request;
-  const { user } = request;
+  const { body, user } = request;
 
   const blog = new Blog({
     title: body.title,
@@ -47,16 +56,6 @@ blogsRouter.post('/', ...authenticator, async (request, response) => {
   await user.save();
 
   response.status(201).json(savedBlogPopulated);
-});
-
-blogsRouter.get('/:id', async (request, response) => {
-  const requestedBlog = await Blog.findById(request.params.id).populate(
-    'user',
-    { username: 1, name: 1 },
-  );
-  if (!requestedBlog) return response.status(404).end();
-
-  response.json(requestedBlog);
 });
 
 blogsRouter.put('/:id', ...authenticator, async (request, response) => {

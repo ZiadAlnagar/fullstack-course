@@ -3,11 +3,19 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@reduxjs/toolkit": "^1.9.1",
+    "@styled-icons/material-rounded": "^10.47.0",
     "axios": "^1.2.1",
+    "normalize.css": "^8.0.1",
     "prop-types": "^15.8.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "react-redux": "^8.0.5",
+    "react-router-dom": "^6.6.2",
     "react-scripts": "5.0.1",
+    "redux": "^4.2.0",
+    "redux-thunk": "^2.4.2",
+    "styled-components": "^5.3.6",
     "web-vitals": "^2.1.4"
   },
   "scripts": {
@@ -18,6 +26,9 @@
     "test:coverage": "cross-env CI=true npm test -- --coverage",
     "eject": "react-scripts eject",
     "lint": "eslint .",
+    "prettier": "npx prettier --write . & npx prettier --check .",
+    "prettier:format": "npx prettier --write .",
+    "prettier:check": "npx prettier --check .",
     "cypress:open": "cypress open",
     "cypress:e2e": "cypress run"
   },
@@ -48,6 +59,7 @@
     "cypress": "^12.2.0",
     "eslint-config-airbnb": "^19.0.4",
     "eslint-config-prettier": "^8.6.0",
-    "eslint-plugin-cypress": "^2.12.1"
+    "eslint-plugin-cypress": "^2.12.1",
+    "prettier": "2.8.3"
   }
 }

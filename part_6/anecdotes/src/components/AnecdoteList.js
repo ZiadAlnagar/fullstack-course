@@ -1,7 +1,7 @@
 /* eslint-disable no-nested-ternary */
 
 import { useSelector, useDispatch } from 'react-redux';
-import { vote, voteAnecdote } from '../reducers/anecdoteReducer';
+import { voteAnecdote } from '../reducers/anecdoteReducer';
 
 const AnecdoteList = () => {
   const dispatch = useDispatch();
